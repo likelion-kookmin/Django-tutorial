@@ -27,7 +27,7 @@ python --version
 python -m venv (내 가상환경 이름)
 
 ex)
-python -m vevn myvenv 
+python -m venv myvenv 
 ```
 예시에선 `myvenv`가 내 가상환경 이름이다
 
@@ -153,18 +153,23 @@ urlpatterns = [
 ```
 python manage.py runserver
 ```
-실행시키고 뜨는 127.0.0.1.8000을 누르고 Hello World가 잘 뜨는지 확인하자<br/>
+실행시키고 뜨는 `http://127.0.0.1:8000/`을 누르고 Hello World가 잘 뜨는지 확인하자<br/>
 만약 `manage.py` 를 찾을 수가 없다는 에러가 뜨면 터미널에다가
 
 ```
 ls
 ```
 를 입력해서 현재 폴더에 `manage.py`가 있는지 확인하고 있는 위치로 `cd`를 통해 이동하자<br/>
-`cd ..`는 상위 폴더로 이동<br/>
-`cd myproject`는 하위에 있는 `myproject`폴더 안으로 이동<br/>
+```
+cd ..
+```
+는 상위 폴더로 이동<br/>
+```
+cd myproject
+```
+는 하위에 있는 `myproject`폴더 안으로 이동<br/>
 
-### 9. 잘 따라오셧나여???
-맞춤법이나 오타있으면 피드백점
+### 9. 잘 따라오셨나요?? 이해가 되지않거나 어려운 것이 있으면 주저말고 멘토에게 카톡날려서 물어보세요~~~~
 
 
 
