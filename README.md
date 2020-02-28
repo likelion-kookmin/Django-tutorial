@@ -16,4 +16,4 @@
 PS. 실습한 피피티 파일도 함께 올릴까.. 고민
 
 
-## 1주차 **[[HelloWorld](https://github.com/LikeLion-at-KMU/Django-tutorial/blob/master/lecture_note/%EC%8B%A4%EC%8A%B5%EB%82%B4%EC%9A%A9%EC%A0%95%EB%A6%AC/1_HelloWorld.md)]**<br/>
+## **[[HelloWorld](https://github.com/LikeLion-at-KMU/Django-tutorial/blob/master/lecture_note/%EC%8B%A4%EC%8A%B5%EB%82%B4%EC%9A%A9%EC%A0%95%EB%A6%AC/1_HelloWorld.md)]**<br/>
