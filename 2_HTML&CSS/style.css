@@ -1,0 +1,38 @@
+div {
+  width: 100px; /* 해당하는 태그의 너비를 100픽셀로 해라. */
+  color: #ffffff; /* 해당하는 태그의 글자색을 검정으로 해라. */
+  background-color: blue; /* 해당하는 태그의 배경색을 빨간색으로 하라. */
+}
+
+/* h1만 선택 */
+h1 {
+  text-align: center;
+}
+
+/* 아이디 선택 */
+#human {
+  font-family: Georgia, "Times New Roman", serif; /* 폰트 바꾸기 */
+  font-size: 5rem; /* 폰트 크기 1rem은 기본 글자 크기 */
+}
+
+/* 해당 태그 안의 클래스 선택 */
+div .black {
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+/* 해당 class를 가진 태그 선택 */
+a.link {
+  color: red;
+  font-size: 3rem;
+}
+
+/* 여러 선택자 사용 */
+div.cyan,
+h1,
+span,
+p {
+  background-color: blueviolet;
+  border-radius: 10px; /* 모서리가 둥글어진다. */
+}
