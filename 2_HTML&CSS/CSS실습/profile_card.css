@@ -1,0 +1,16 @@
+.card {
+  /* box-shadow는 카드 아래의 그림자를 만들어준다. */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* 그림자가 커지는 애니메이션을 0.3초동안 실행시킨다. 1s로 바꾸면 1초동안 실행! */
+  transition: 0.3s;
+  width: 20rem; /* 크기를 글자 20개 크기로 조정 */
+}
+
+/* 마우스를 올렸을 때 발생하는 box-shadow의 크기를 늘린다.*/
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
