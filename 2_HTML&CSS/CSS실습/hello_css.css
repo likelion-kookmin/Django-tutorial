@@ -36,3 +36,9 @@ p {
   background-color: blueviolet;
   border-radius: 10px; /* 모서리가 둥글어진다. */
 }
+
+/* div 태그에 마우스를 올렸을 때 */
+div:hover {
+  color: brown;
+  background-color: aqua;
+}
