@@ -181,6 +181,18 @@ hr : 저기 보시면 줄이 생겼죠? hr 태그입니다.
 HTML,Python,C 각 언어(html은 언어X) 마다 주석 처리 방법이 다릅니다.
 
 
+### 글 쓰는 공간 : textarea 태그
+
+<textarea name="" id="" cols="30" rows="10">?????</textarea>  
+여기는 뭐하는 걸까요? 여러분이 원하는 텍스트를 작성하는 것입니다.  
+사이즈를 조절할 수 있는 장점이 있습니다.
+
+```html
+<textarea name="" id="" cols="30" rows="10">?????</textarea>  
+여러분 고등학교때 행렬 배우셨죠? 행과 열= cols , rows 입니다.
+```
+
+
 <hr>
 
 ## 내용에 id , class 걸어주기  // 미완성
