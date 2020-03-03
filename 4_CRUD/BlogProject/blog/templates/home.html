@@ -1,0 +1,16 @@
+
+<h1>LIKELION Blog Project</h1>
+
+<a href="{%url 'new' %}">make your blog</a>
+
+<div>
+
+   {% for blog in blogs%}
+      <hr>
+      <a href="{% url 'detail' blog.id %}">
+      <h2>{{blog.title}}</h2>
+      <p>{{blog.pub_date}}</p>
+      <p>{{blog.summary}}</p>
+     </a>
+   {% endfor %}
+</div>

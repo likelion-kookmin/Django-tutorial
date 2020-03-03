@@ -1,0 +1,12 @@
+
+<h1>Blog Project Detail</h1>
+<br>
+<br>
+<h2>{{blog.title}}</h2>
+<hr>
+<p>{{blog.pub_date}}</p>
+<hr>
+<p>{{blog.body}}</p>
+
+<a href="{%url 'edit' blog.id%}">수정하기</a>
+<a href="{%url 'delete' blog.id%}">삭제하기</a>
