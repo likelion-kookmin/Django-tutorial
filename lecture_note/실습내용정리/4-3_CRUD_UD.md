@@ -6,27 +6,27 @@
 이번에는 글을 수정하는 기능을 만들어 봅시다. 기본적인 원리는 앞에 create 부분과 비슷합니다.
 
 
-### 1. templates에서 edit.html을 만들어줍시다.
+#### 1. templates에서 edit.html을 만들어줍시다.
 
 create에서 new.html 과 똑같은 역할을 합니다. 글을 수정할 수 있는 수정 form 입니다.
 
 
-### 2. views.py에서 edit.html로 rendering하는 함수를 만들어 줍니다.
+#### 2. views.py에서 edit.html로 rendering하는 함수를 만들어 줍니다.
 
-'''
+```
 def edit(request,blog_id): # blog 객체의 id값을 받는 매개변수를 받는다.
     blog = get_object_or_404(Blog,pk = blog_id) # id값을 통해 객체를 불러온다.
     return render(request, 'edit.html',{'blog':blog})
 
-'''
+```
 
 여기서 new.html 과 다른 점이 있는데요 바로 객체를 가져와야 한다는 점입니다. 글의 원래 내용을 바탕으로 수정을 해야하기 때문에
 매개변수 받는 부분이 추가 되었고 수정 form에다가 수정을 할 blog객체를 보내줘야 합니다.
 
 
-### 3. 글을 수정할 edit.html을 만듭니다.
+#### 3. 글을 수정할 edit.html을 만듭니다.
 
-'''
+```
 <h1>Edit Your Blog</h1>
 
 <div>
@@ -43,26 +43,24 @@ def edit(request,blog_id): # blog 객체의 id값을 받는 매개변수를 받�
 
 </div>
 
-'''
+```
 
-new.html 의 form과 비슷하게 생겼습니다. 다른점은 input 태그 안에 value값과 textarea에 {{blog.body}} edit함수에서 보내준 blog객체의 정보입니다.
-그밖에는 new.html과 똑같습니다.
+new.html 의 form과 비슷하게 생겼습니다. 다른점은 input 태그 안에 value값의 {{blog.title}}과 textarea에 {{blog.body}} edit함수에서 보내준 blog객체의 정보입니다. 수정을 하려면 이전 내용을 보여줘야 하기 때문에 객체를 보낸 것이 었습니다. </br>
+그리고 그밖에는 new.html과 똑같습니다.
 
 
-### 4. urls.py 
+#### 4. urls.py 
 
 edit.html을 보여주는 url을 추가합시다.
 
-'''urls.py
+```urls.py
   path('blog/edit/<int:blog_id>',blog.views.edit, name = "edit"),
-'''
+```
+edit함수에서 blog객체의 id를 받아야 하고 수정하는 페이지가 어떤 글을 수정할 것이냐에 따라 url이 다르기 때문에 path-converter가 사용되었습니다.
 
-수정해야 할 blog의 id값을 edit함수에서 매개변수로 받기 때문에 path-converter가 사용되었습니다.
+#### 5. 객체를 수정하는 update 함수 만들기 
 
-
-### 4. 객체를 수정하는 update 함수 만들기 
-
-'''views.py
+```views.py
 
 def update(request,blog_id): # 수정할 객체의 id값을 매개변수로 받는다.
     edit_blog = get_object_or_404(Blog,pk= blog_id) #매개변수로 받은 id값으로 blog객체를 가져온다
@@ -72,26 +70,25 @@ def update(request,blog_id): # 수정할 객체의 id값을 매개변수로 받�
     edit_blog.save()
     return redirect('/blog/' + str(edit_blog.id))
 
-'''
+```
 
 id값을 매개변수로 받고 그 id값으로 객체를 불러와서 그 객체의 column에 html의 수정한 정보를 덧씌웁니다.
 **create는 객체를 생성했는데 update는 id값으로 객체를 가져오는게 큰 차이점입니다.**
 
 
-### 4. urls.py 
+#### 6. urls.py 
 
-views.py에서 함수를 만들었으면 얘를 연결 시킬 url이 필요합니다.
+views.py에서 함수를 만들었으면 실행 시킬 url이 필요합니다.
 
-'''urls.py
+```urls.py
 path('blog/update/<int:blog_id>',blog.views.update, name = "update"),
+```
+update도 매개변수로 id값을 받아야 하기 때문에 path-coverter가 필요합니다.
 
-'''
-update도 매개변수를 받기 때문에 path-coverter가 필요합니다.
 
+#### 5. detail.html에 수정하기 연결
 
-### 5. detail.html에 수정하기 연결
-
-'''
+```
 <h1>Blog Project Detail</h1>
 <br>
 <br>
@@ -103,50 +100,50 @@ update도 매개변수를 받기 때문에 path-coverter가 필요합니다.
 
 <a href="{%url 'edit' blog.id%}">수정하기</a>
 
-'''
-new.html로 가는 버튼은 home.html에 있었지만 edit.html은 detail.html에 있습니다.
-이유는 설명 안해도 아시죠?
+```
+new.html로 가는 버튼은 home.html에 있었지만 edit.html은 detail.html에 있습니다.</br> 
+blog의 id를 가져와야 하기 때문입니다. 그리고 사이트 구조상 더 안정적입니다,
 
-'''
+```
 <a href="{%url 'edit' blog.id%}">수정하기</a>
-'''
+```
 이 a태그 하나 추가합시다 namespace 뒤에 blog.id를 넘겨줘야 한다는 점 잊지맙시다.
 
 
-## UPDATE 끝!
+#### UPDATE 끝!
 
 ## Delete 
 
-수정도 만들어 줬는데 삭제도 만들어 줘야죠 바로 시작합시다.
+수정을 만들었으면 삭제도 만들어 줍시다.
 
-### 1. views.py
+#### 1. views.py
 
-얘는 html파일 만들 필요가 없습니다. 바로 함수 만들어 줍시다.
+삭제는 html파일 만들 필요가 없습니다. 바로 함수 만들어 줍시다.
 
-'''views.py
+```views.py
 
 def delete(request,blog_id): # 매개변수로 id값을 받는다.
     delete_blog =get_object_or_404(Blog,pk = blog_id) # 그 id값으로 객체를 불러온다.
     delete_blog.delete() # 삭제한다
     return redirect('home') # home.html로 이동한다
 
-'''
-delete함수는 id값을 받아서 그 객체를 불러온 다음 그 객체를 delete()라는 메소드를 사용해서 삭제합니다.
-그리고 namespace가 home인 home.html로 이동합니다. 
+```
+delete함수는 id값을 받아서 그 객체를 불러온 다음 그 객체를 delete()라는 메소드를 사용해서 삭제합니다.</br>
+그리고 name = "home"인 "home" url을 리다이렉팅해서 home.html로 이동합니다. 
 
-### 2. urls.py
+#### 2. urls.py
 
 
-''' urls.py
+``` urls.py
 
 path('blog/delete/<int:blog_id>',blog.views.delete, name = "delete"),
 
-'''
+```
 
 url 연결해줍니다. id를 넘겨줘야하기 때문에 path-converter를 넣어줍니다.
 
 
-###3. detail.html에서 연결하기
+#### 3. detail.html에서 연결하기
 
 edit.html로 이동하는 수정하기 처럼 detail페이지에 삭제하기를 추가합니다! 
 
@@ -161,6 +158,8 @@ edit.html로 이동하는 수정하기 처럼 detail페이지에 삭제하기를
 <p>{{blog.body}}</p>
 
 <a href="{%url 'edit' blog.id%}">수정하기</a>
-<a href="{%url 'delete' blog.id%}">삭제하기</a> #추가
+<a href="{%url 'delete' blog.id%}">삭제하기</a> # id 값을 넘기기 위해 blog.id를 추가한다
+
 ```
 
+#### delete 끝
