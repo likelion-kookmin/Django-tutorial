@@ -144,3 +144,24 @@ path('blog/delete/<int:blog_id>',blog.views.delete, name = "delete"),
 '''
 
 url 연결해줍니다. id를 넘겨줘야하기 때문에 path-converter를 넣어줍니다.
+
+
+###3. detail.html에서 연결하기
+
+edit.html로 이동하는 수정하기 처럼 detail페이지에 삭제하기를 추가합니다! 
+
+'''detail.html
+<h1>Blog Project Detail</h1>
+<br>
+<br>
+<h2>{{blog.title}}</h2>
+<hr>
+<p>{{blog.pub_date}}</p>
+<hr>
+<p>{{blog.body}}</p>
+
+<a href="{%url 'edit' blog.id%}">수정하기</a>
+<a href="{%url 'delete' blog.id%}">삭제하기</a> #추가
+
+'''
+
