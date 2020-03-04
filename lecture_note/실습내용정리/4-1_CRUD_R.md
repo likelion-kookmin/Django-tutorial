@@ -323,7 +323,9 @@ converter의 다양한 타입에 대해 궁금하시면 구글에 검색해보�
 
 3. detail.html
 
-'''
+templates 폴더 안에 detail.html을 만들어 줍시다.
+
+'''detail.html
 <h1>Blog Project Detail</h1>
 <br>
 <br>
