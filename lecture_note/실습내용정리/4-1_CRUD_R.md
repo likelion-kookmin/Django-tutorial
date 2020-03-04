@@ -148,8 +148,8 @@ def home(request):
 2. Blog 의 objects 들을 all() 메소드를 사용해서 전부 가져와서 queryset 형태로 blogs에 넣는다. 그래서 `blogs = Blog.objects.all()`
    * all() 말고도 filter , get 등등 다양한 메소드가 존재합니다.
    * queryset은 query들의 집이고, query는 하나의 객체라고 생각하시면 됩니다.
-3. + {'blogs':blogs}는 위에 queryset을 저장한 blogs을  dic형태로 'blogs'라는 key값에 저장합니다. 
-   + 이 dictionary와 함께 home.html 을 request 한 것을 rendering 합니다.
+3. {'blogs':blogs}는 위에 queryset을 저장한 blogs을  dic형태로 'blogs'라는 key값에 저장합니다. <br/>
+    이 dictionary와 함께 home.html 을 request 한 것을 rendering 합니다.
 
 #### 3. url 연결하기 
 
@@ -219,7 +219,7 @@ home.html에 그냥 `{{blogs}}`로 받으면 이상한 queryset 어쩌구 저쩌
 그래서 models.py에서 메소드를 하나 추가할 것입니다.<br/>
 
 
-'''models.py
+```models.py
 from django.db import models
 
 class Blog(models.Model):
@@ -232,8 +232,8 @@ class Blog(models.Model):
     
     def summary(self):
         return self.body[:100]
+```
 
-'''
 
 summary라는 메소드를 추가했습니다. 이 함수를 호출하면 body를 100자만 보여줍니다. <br/>
 이 역시 메소드만 만든 것이니 migrate를 할 필요는 없습니다.
@@ -276,21 +276,20 @@ def home(request):
     blogs = Blog.objects.all()
     return render(request, 'home.html',{'blogs':blogs})
 
-def detail(request,blog_id): # 매개변수에 request 말고도 blog_id가 추가 되는데요 여길 통해서 객체의 id값을 받을 것입니다.
-    blog = get_object_or_404(Blog,pk = blog_id)
-    return render(request, 'detail.html',{'blog':blog})
+def detail(request,blog_id): # 매개변수에 blog_id가 추가됬고 이 매개변수로 객체의 id값을 받습니다. 
+    blog = get_object_or_404(Blog,pk = blog_id) #1
+    return render(request, 'detail.html',{'blog':blog}) #2
 ```
 
 home 함수 아래 detail 함수를 만들었습니다. `get_object_or_404`라는 메소드를 사용할 것입니다.
 
 `get_object_or_404(model이름, pk = id값) `
 
-이 메소드의 첫번째 인자는 가져올 객체의 모델이름, 그리고 두번째 인자는 그 객체의 id값입니다.
+이 메소드의 첫번째 인자는 가져올 객체의 모델이름, 그리고 두번째 인자는 그 객체의 id값입니다.<br/>
 
-메소드의 기능은 모델의 몇번 id값의 객체를 가져와라 아니면 [404에러](https://ko.wikipedia.org/wiki/HTTP_404)를 띄워라 라는 기능을 하는 메소드입니다. 
-이로써 queryset이 아닌 우리가 특정 할 수있는 하나의 객체를 가져올 수 있게 됩니다.
+1. 메소드의 기능은 모델의 몇번 id값의 객체를 가져와라 아니면 [404에러](https://ko.wikipedia.org/wiki/HTTP_404)를 띄워라 라는 기능을 하는 메소드입니다.<br/> 이로써 queryset이 아닌 우리가 특정 할 수있는 하나의 객체를 가져올 수 있게 됩니다.
 
-그리고 얘를 blog에 담아서 'blog'라는 key 값으로 detail.html과 함께 rendering 합니다
+2. 그리고 이 id값의 객체를 blog에 담아서 'blog'라는 key 값으로 detail.html과 함께 rendering 합니다
 
 #### 2. urls.py
 
@@ -308,16 +307,18 @@ urlpatterns = [
 
 ```
 객체에 따라서 보여 줘야 할 url이 다 다릅니다. 이것을 path-converter를 통해서 다르게 보여 줍니다.
+
+(example)<br/>
 + 1번 객체의 대한 detail url  http://127.0.0.1:8000/blog/1
-+ 2번 객체의 대한 detail url  http://127.0.0.1:8000/2
++ 2번 객체의 대한 detail url  http://127.0.0.1:8000/blog/2
 
 ##### path-converter 란
 위에 `<int:blog_id>`같은 것들을 path-converter라고 합니다.
 장고에서 여러 객체들을 다루는 계층적 url이 필요할 경우에 사용하며, `<type:name>`와 같은 모양입니다.
-'지정한 converter type의 name변수를 view 함수로 넘겨라' 하고 정리할 수 있습니다.
+'지정한 converter type의 name변수를 view 함수로 넘겨라' 하고 정리할 수 있습니다.<br/>
 converter의 다양한 타입에 대해 궁금하시면 구글에 검색해보시는 걸 추천드립니다!
 
-3. detail.html
+#### 3. detail.html
 
 templates 폴더 안에 detail.html을 만들어 줍시다.
 
@@ -336,12 +337,12 @@ templates 폴더 안에 detail.html을 만들어 줍시다.
 
 이제 id값을 넘겨주고 url을 연결 시켜줄 a태그를 home.html에 만들면 됩니다.
 
-4. home.html 
+#### 4. home.html 
 
 ```home.html
 <h1>LIKELION Blog Project</h1>
 
-<a href="{%url 'new' %}">make your blog</a>
+<a href="{%url 'new' %}">make your blog</a> # 추가된 a태그
 
 <div>
 
@@ -356,9 +357,9 @@ templates 폴더 안에 detail.html을 만들어 줍시다.
 </div>
 ```
 
-`<a href="{% url 'detail' blog.id %}"><a>` 이 a태그가 추가 되었습니다. a태그를 어디다가 씌울지는 상관은 없지만 for 안에 있어야 됩니다.
+* `<a href="{% url 'detail' blog.id %}"><a>` 이 a태그가 추가 되었습니다. a태그를 어디다가 씌울지는 상관은 없지만 for문 안에 있어야 됩니다.
 
-path의 세번째 인자인 namespace를 여기서 사용합니다 `name = "이름"`했던 부분에 그  `"이름"` 을 넣고 뒤에  blog의 id인 **blog.id**를 써 줍니다  
+* urls.py 에서 path의 세번째 인자인 namespace를 여기서 사용합니다 `name = "detail"`했던 부분, 그것을 사용해서 url을 호출합니다. 그래서  `'detail'` 을 넣고 뒤에 보내줘야 할 blog의 id인 **blog.id**를 써 줍니다  
 
 
 ### 이로써 read의 역할을 하는 home과 detail이 완성이 됬습니다. 
