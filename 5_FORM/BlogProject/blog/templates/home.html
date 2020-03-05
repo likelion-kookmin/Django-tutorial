@@ -1,0 +1,19 @@
+{% load static%}
+<h1>LIKELION Blog Project</h1>
+<img src="{% static 'logo.png' %}" alt=""><br>
+
+<a href="{%url 'new' %}">make your blog</a>
+
+<div>
+
+    {% for blog in blogs%}
+       <hr>
+       <h2>{{blog.title}}</h2>
+       <p>{{blog.pub_date}}</p>
+       <p>{{blog.summary}}</p>
+         {% if blog.image %}
+            <img src="{{blog.image.url}}" alt="">
+         {% endif %}
+      </a>
+    {% endfor %}
+ </div>
