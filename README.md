@@ -15,8 +15,8 @@
 
 PS. 실습한 피피티 파일도 함께 올릴까.. 고민
 
-## **[[장고 기본개념]](https://github.com/LikeLion-at-KMU/Django-tutorial/blob/master/lecture_note/%EC%8B%A4%EC%8A%B5%EB%82%B4%EC%9A%A9%EC%A0%95%EB%A6%AC/1-1_장고기본개념.md)]**<br/>
-## **[[장고 환경설정]](https://github.com/LikeLion-at-KMU/Django-tutorial/blob/master/lecture_note/%EC%8B%A4%EC%8A%B5%EB%82%B4%EC%9A%A9%EC%A0%95%EB%A6%AC/1-2_장고환경설정(+화면띄우기).md)]**<br/>
-## **[[HTML 기본]](https://github.com/LikeLion-at-KMU/Django-tutorial/blob/master/lecture_note/%EC%8B%A4%EC%8A%B5%EB%82%B4%EC%9A%A9%EC%A0%95%EB%A6%AC/2-1_html기본.md)]**<br/>
-## **[[CSS 기본]](https://github.com/LikeLion-at-KMU/Django-tutorial/blob/master/lecture_note/%EC%8B%A4%EC%8A%B5%EB%82%B4%EC%9A%A9%EC%A0%95%EB%A6%AC/2-1_CSS기본.md)]**<br/>
+## **[[장고 기본개념](https://github.com/LikeLion-at-KMU/Django-tutorial/blob/master/lecture_note/%EC%8B%A4%EC%8A%B5%EB%82%B4%EC%9A%A9%EC%A0%95%EB%A6%AC/1-1_장고기본개념.md)]**<br/>
+## **[[장고 환경설정](https://github.com/LikeLion-at-KMU/Django-tutorial/blob/master/lecture_note/%EC%8B%A4%EC%8A%B5%EB%82%B4%EC%9A%A9%EC%A0%95%EB%A6%AC/1-2_장고환경설정(+화면띄우기).md)]**<br/>
+## **[[HTML 기본](https://github.com/LikeLion-at-KMU/Django-tutorial/blob/master/lecture_note/%EC%8B%A4%EC%8A%B5%EB%82%B4%EC%9A%A9%EC%A0%95%EB%A6%AC/2-1_html기본.md)]**<br/>
+## **[[CSS 기본](https://github.com/LikeLion-at-KMU/Django-tutorial/blob/master/lecture_note/%EC%8B%A4%EC%8A%B5%EB%82%B4%EC%9A%A9%EC%A0%95%EB%A6%AC/2-1_CSS기본.md)]**<br/>
 
