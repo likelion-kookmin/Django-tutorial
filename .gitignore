@@ -140,3 +140,10 @@ venv.bak/
 pip-selfcheck.json
 
 # End of https://www.gitignore.io/api/venv
+5_FORM/.DS_Store
+
+6_User/.idea/
+
+.DS_Store
+
+6_User/temp/

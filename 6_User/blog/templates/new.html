@@ -1,0 +1,15 @@
+<h1>Make New Blog</h1>
+<h3>form으로 받아오는 방식</h3>
+<hr>
+
+<div calss='container'>
+    <form method='POST' action='' enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <br>
+        <input class="btn btn-dark" type="submit" value="제출하기">
+    </form>
+
+</div>
