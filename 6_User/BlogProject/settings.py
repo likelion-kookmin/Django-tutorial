@@ -59,7 +59,8 @@ ROOT_URLCONF = 'BlogProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # 디렉토리를 추가해 주는 것도 잊지마세요!
+        'DIRS': [os.path.join(BASE_DIR, 'BlogProject/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

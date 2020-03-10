@@ -1,12 +1,20 @@
+{% extends 'base.html' %}
+
+{%block title%} My Own Blog {% endblock %}
+{% block content %}
+
+<h1>Like Lion Djagno Project</h1>
 {% load static%}
-<h1>LIKELION Blog Project</h1>
 <img src="{% static 'logo.png' %}" alt=""><br>
 
+{% if user.is_authenticated%}
+반가워요! {{ user.username }}님 오늘은 무슨 글을 쓰고 싶은가요?
+{% endif %}
 <a href="{%url 'new' %}">make your blog</a>
 
 <div>
 
-    {% for blog in blogs%}
+    {% for blog in blogs %}
        <hr>
        <h2>{{blog.title}}</h2>
        <p>{{blog.pub_date}}</p>
@@ -17,3 +25,5 @@
       </a>
     {% endfor %}
  </div>
+{% endblock %}
+

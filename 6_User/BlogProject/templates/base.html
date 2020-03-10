@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<head>
+    <title>{% block title %}{% endblock %} </title>
+</head>
+<body>
+<div id="sidebar">
+{% block sidebar %}
+    <a href="{% url 'home' %}">홈으로</a>&nbsp
+    {% if not user.is_authenticated %}
+    <a href="{% url 'log_in' %}"> 로그인 </a> &nbsp
+    {% else %}
+    <a href="{% url 'log_out' %}">로그아웃</a> &nbsp
+    {% endif %}
+    <a href="{% url 'sign_up' %}"> 화원가입 </a>
+    <br>
+{% endblock %}
+</div>
+<div id="content">
+    {% block content %} {% endblock %}
+</div>
+</body>
+</html>
