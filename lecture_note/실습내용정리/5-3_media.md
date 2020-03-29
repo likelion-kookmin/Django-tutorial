@@ -55,6 +55,13 @@ image = models.ImageField( upload_to="blog/", null=True, blank=True)
 modeld을 수정했으니 `python manage.py makemigrations` 와 `python manage.py migrate` 해주기
 <br>
 
+#### 주의사항! makemigrations 오류 해결
+file을 다루기 위해서는 파이썬패키지인 pillow 필요!
+```
+pip install Pillow
+```
+설치하기!
+
 ## 4. form에 알려주기
 model에 만들어 줬으니 form 에도 알려주기
  #### forms.py에 가서 fields 에 'image' 추가
